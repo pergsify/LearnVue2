@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="root">
+		<h2>
+			All Tasks
+		</h2>
+		<ul>
+			<!-- <li v-for="task in tasks" v-if="task.completed" v-text="task.description"></li> -->
+			<li v-for="task in tasks" >
+				<input type="checkbox" v-model="task.completed">
+				{{ task.description }}
+				<!-- <button @click="addToComplete">Complete</button> -->
+			</li>
+
+		</ul>
+
+		<h2>
+			Completed Tasks
+		</h2>
+
+		<ul>
+			<li v-for="task in incompleteTasks" v-text="task.description">
+				
+			</li>
+
+		</ul>
+
+		<h2>
+			Completed Tasks
+		</h2>
+		<ul>
+			<li v-for="task in completedTasks" v-text="task.description"></li>
+		</ul>
+
+		<!-- <h1>
+			{{ reversedMessage }}
+			{{ messasge.split('').reverse().join('') }}
+			
+		</h1> -->
+	</div>
+	<script type="text/javascript" src="https://unpkg.com/vue@2.4.3/dist/vue.js"></script>
+
+	<script>
+		var app = new Vue({
+			el: '#root',
+			data: {
+				// message: 'Hello World'
+				tasks: [
+					{ description: 'Go to the store', completed: true },
+					{ description: 'Finish screencast', completed: false },
+					{ description: 'Make donatioin', completed: false },
+					{ description: 'Clear Inbox', completed: false },
+					{ description: 'Make dinner', completed: false },
+					{ description: 'Clean Room', completed: true }
+				]
+			},
+			computed: {
+
+				incompleteTasks() {
+					return this.tasks.filter(task => ! task.completed)
+					// this.tasks.filter(function(task) {
+					// 	return ! task.completed;
+					// })
+				},
+
+				completedTasks() {
+					return this.tasks.filter(task => task.completed)
+				}
+
+				// reversedMessage() {
+				// 	return this.message.split('').reverse().join('')
+				// }
+			},
+			methods: {
+				addToComplete() {
+					this.tasks.push(this.task)
+				}
+			}
+		})
+	</script>
+</body>
+</html>
