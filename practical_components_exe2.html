@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.2/css/bulma.css">
+	<script src="https://unpkg.com/vue@2.4.3/dist/vue.js"></script>
+
+	<style type="text/css">
+		body { padding-top: 40px; }
+	</style>
+</head>
+<body>
+	<div id="root" class="container">
+		<modal v-if="showModal" @close="showModal = false"  ></modal>
+		<!-- <div class="modal is-active">
+		  	<div class="modal-background"></div>
+			  	<div class="modal-content">
+			  		<div class="box">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+						</p>		  
+					</div>  
+			 	</div>
+		  	<button class="modal-close is-large" aria-label="close"></button>
+		</div> -->
+		<button @click="showModal = true">Show Modal</button>
+	</div>
+
+	<script src="exe2.js"></script>
+
+</body>
+</html>
